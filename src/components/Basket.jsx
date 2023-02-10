@@ -1,16 +1,11 @@
 import BasketItem from './BasketItem';
+import '../App.css';
 
 function Basket({ basket, products, total, clearBasket }) {
   return (
-    <div style={{}}>
-      <h1
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        Sepetim
-      </h1>
-      <ul>
+    <div>
+      <h1 className="basketTitle">Sepetim</h1>
+      <ul className="basketProducts">
         {basket.map((item) => (
           <BasketItem
             product={products.find((p) => p.id === item.id)}
@@ -18,8 +13,12 @@ function Basket({ basket, products, total, clearBasket }) {
           />
         ))}
       </ul>
-      Toplam: ${total}
-      <button onClick={clearBasket}>Sepeti Temizle</button>
+      <div className="totalMoney">
+        <h3>Toplam: ${total}</h3>
+        <button className="wasd" onClick={clearBasket}>
+          Sepeti Temizle
+        </button>
+      </div>
     </div>
   );
 }

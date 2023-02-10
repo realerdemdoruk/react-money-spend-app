@@ -10,7 +10,7 @@ function App() {
     setBasket([]);
   };
 
-  const [money, setMoney] = useState(1000000);
+  const [money, setMoney] = useState(100);
   const [basket, setBasket] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -26,44 +26,19 @@ function App() {
   }, [basket]);
 
   return (
-    <div
-      className="App"
-      style={{
-        // display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <div className="App">
       <Header money={money} total={total} />
-      <h1
-        style={{
-          textAlign: 'center',
-          fontSize: '2rem',
-          fontWeight: 'bold',
-        }}
-      >
-        Market
-      </h1>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '3rem',
-        }}
-      >
+      <h1 className="title">Market</h1>
+      <div className="products">
         {products.map((product) => {
           return (
             <Product
               key={product.id}
               product={product}
-              money={money}
-              setMoney={setMoney}
               basket={basket}
               setBasket={setBasket}
               total={total}
-              setTotal={setTotal}
+              money={money}
             />
           );
         })}

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 const Product = ({ product, basket, setBasket, total, money }) => {
   const basketItem = basket.find((item) => item.id === product.id);
@@ -38,45 +39,14 @@ const Product = ({ product, basket, setBasket, total, money }) => {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: '1rem',
-        width: '100px',
-        height: '100px',
-        borderRadius: '0.5rem',
-        boxShadow: '0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2)',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        gap: '1rem',
-        flexDirection: 'column',
-        backgroundColor: 'lightblue',
-      }}
-    >
+    <div className="productContainer">
       <div>
-        <p
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          {product.title}
+        <p className="productTitle">
+          <h5>{product.title}</h5>
         </p>
-        <p
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          ${product.price}
-        </p>
+        <p className="productTitle">${product.price}</p>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-        }}
-      >
+      <div className="productButtons">
         <button disabled={!basketItem} onClick={removeBasket}>
           Çıkar
         </button>
